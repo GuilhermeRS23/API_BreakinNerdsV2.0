@@ -9,6 +9,10 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuilhermeRS23/API_BreakinNerdsV2.0"
+  },
   "author": "Guilherme RS",
   "license": "ISC",
   "dependencies": {
