@@ -2,7 +2,7 @@ import "dotenv/config";
 import cors from "cors";
 import express from "express";
 import connectionDatabase from "./src/database/database.js";
-import routes from "";
+import routes from "./src/routes/routes.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
