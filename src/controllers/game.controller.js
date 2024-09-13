@@ -121,7 +121,7 @@ const addCommentGameController = async(req, res) => {
     await gameService.addCommentGameService(gameId, message, userId);
 
     return res.send({
-      message: "Comentário enviado com sucesso!",
+      message: "Comment sent successfully!",
     });
   } catch (e) {
     return res.status(500).send(e.message);
@@ -135,7 +135,7 @@ const commentDeleteGameController = async(req, res) => {
   try {
     await gameService.commentDeleteGameService(gameId, userId, idComment);
 
-    return res.send({ message: "Comentário removido com sucesso" });
+    return res.send({ message: "Comment removed successfully!" });
   } catch (e) {
     return res.status(500).send(e.message);
   }

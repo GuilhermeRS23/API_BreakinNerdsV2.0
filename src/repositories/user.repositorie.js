@@ -9,7 +9,7 @@ const createUserRepository = ({ name, username, email, password, avatar, backgro
 
 const findByIdUserRepository = (id) => User.findById(id);
 
-const updateUserRepository = (name, username, email, password, avatar, background) =>
+const updateUserRepository = (id, name, username, email, password, avatar, background) =>
     User.findByIdAndUpdate(
         { _id: id },
         { name, username, email, password, avatar, background },
