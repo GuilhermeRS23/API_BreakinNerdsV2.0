@@ -1,4 +1,4 @@
-import gameRepositories from "../repositories/game.repositorie.js";
+import gameRepositories from "../repositories/game.repository.js";
 
 const createGameService = async({ title, cover, description }, userId) => {
   if (!title || !cover || !description)

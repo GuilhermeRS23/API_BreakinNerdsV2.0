@@ -5,7 +5,9 @@ const loginController = async (req, res) => {
 
     try {
         const token = await authService.loginService({ email, password });
-        return res.send(token);
+        return res.json({
+            token
+        });
 
     } catch (error) {
         return res.status(401).send(error.message);

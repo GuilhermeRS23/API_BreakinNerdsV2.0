@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import authService from "./auth.service.js";
-import userRepositories from "../repositories/user.repositorie.js";
+import userRepositories from "../repositories/user.repository.js";
 
 const createUserService = async ({ name, username, email, password, avatar, background }) => {
     if (!username || !name || !email || !password || !avatar || !background)
