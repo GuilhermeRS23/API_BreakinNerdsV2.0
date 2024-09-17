@@ -41,7 +41,7 @@ const findAllGamesService = async (limit, offset, currentUrl) => {
   const previousUrl =
     previous != null ? `${currentUrl}?limit=${limit}&offset=${previous}` : null;
 
-  //games.shift();
+  games.shift();
 
   return {
     nextUrl,
@@ -64,7 +64,7 @@ const findAllGamesService = async (limit, offset, currentUrl) => {
   };
 };
 
-const topNewsService = async() => {
+const topGameService = async() => {
   const game = await gameRepositories.topGameRepository();
 
   if (!game) throw new Error("No games registered.");
@@ -196,7 +196,7 @@ const commentDeleteGameService = async(gameId, userId, idComment) => {
 export default {
   createGameService,
   findAllGamesService,
-  topNewsService,
+  topGameService,
   searchGameService,
   findGameByIdService,
   findGamesByUserIdService,
