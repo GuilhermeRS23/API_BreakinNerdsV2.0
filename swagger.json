@@ -246,7 +246,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Post"
+                                "$ref": "#/components/schemas/Games"
                             },
                             "examples": {
                                 "game": {
@@ -515,7 +515,7 @@
                 }
             }
         },
-        "/game/{id}/like": {
+        "/game/like/{id}": {
             "patch": {
                 "summary": "Like a game",
                 "description": "Route responsible for liking a game",
@@ -549,7 +549,7 @@
                 }
             }
         },
-        "/game/{id}/comment": {
+        "/game/comment/{id}": {
             "patch": {
                 "summary": "Comment on a game",
                 "description": "Route responsible for commenting on a game",

@@ -14,7 +14,7 @@ gameRouter.post("/created", gameController.createdGameController);
 
 gameRouter.use(validId);
 gameRouter.get("/:id", gameController.findGameByIdController);
-gameRouter.get("/byUserId/:id", gameController.findGamesByUserIdController);
+gameRouter.get("/byUserId", gameController.findGamesByUserIdController);
 gameRouter.patch("/updated/:id", gameController.updateGameController);
 gameRouter.delete("/deleted/:id", gameController.deleteGameController);
 gameRouter.patch("/like/:id", gameController.likeGameController);
