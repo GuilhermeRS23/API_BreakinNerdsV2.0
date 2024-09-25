@@ -11,7 +11,7 @@ userRouter.use(authMiddleware);
 userRouter.get("/", userController.findAllUserController);
 
 userRouter.use(validId);
-userRouter.get("/:id", userController.findUserByIdController);
+userRouter.get("/findById/:id?", userController.findUserByIdController);
 userRouter.patch("/update/:id" , userController.updateUserController);
 
 export default userRouter;
