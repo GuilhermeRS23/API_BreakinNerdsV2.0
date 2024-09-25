@@ -1,6 +1,6 @@
 import userService from "../services/user.service.js";
 
-const createUserController = async(req, res) =>{
+const createUserController = async (req, res) => {
   const { name, username, email, password, avatar, background } = req.body;
 
   try {
@@ -12,13 +12,13 @@ const createUserController = async(req, res) =>{
       avatar,
       background,
     });
-    res.status(201).send(token);
+    res.status(201).send({ token });
   } catch (e) {
     return res.status(400).send(e.message);
   }
 };
 
-const findAllUserController = async(req, res) =>{
+const findAllUserController = async (req, res) => {
   try {
     const users = await userService.findAllUserService();
     return res.send(users);
@@ -27,7 +27,7 @@ const findAllUserController = async(req, res) =>{
   }
 };
 
-const findUserByIdController = async(req, res) =>{
+const findUserByIdController = async (req, res) => {
   try {
     const user = await userService.findUserByIdService(
       req.params.id,
@@ -39,7 +39,7 @@ const findUserByIdController = async(req, res) =>{
   }
 };
 
-const updateUserController = async(req, res) =>{
+const updateUserController = async (req, res) => {
   try {
     const { name, username, email, password, avatar, background } = req.body;
     const { id: userId } = req.params;

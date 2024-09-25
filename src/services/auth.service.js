@@ -11,7 +11,7 @@ const loginService = async ({ email, password }) => {
     const user = await userRepositories.findByEmailUserRepository(email);
     if (!user) throw new Error("Incorrect password or username.");
 
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = bcrypt.compareSync(password, user.password);
     
     if (!validPassword) throw new Error("Incorrect password or username.");
 
