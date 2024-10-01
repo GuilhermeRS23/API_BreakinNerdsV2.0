@@ -105,7 +105,7 @@ const searchGameService = async (title) => {
   };
 };
 
-const findGameByIdService = async(id) => {
+const findGameByIdService = async (id) => {
   const game = await gameRepositories.findGamesByIdRepository(id);
 
   if (!game) throw new Error("Game not found or deleted.");
@@ -164,7 +164,7 @@ const deleteGameService = async (id, userId) => {
   await gameRepositories.deleteGamesRepository(id);
 };
 
-const likeGameService = async(id, userId) => {
+const likeGameService = async (id, userId) => {
   const gameLiked = await gameRepositories.likesRepository(id, userId);
 
   if (!gameLiked) {
@@ -175,7 +175,7 @@ const likeGameService = async(id, userId) => {
   return { message: "Like added successfully!" };
 };
 
-const addCommentGameService = async(gameId, message, userId) => {
+const addCommentGameService = async (gameId, message, userId) => {
   if (!message) throw new Error("It is not allowed to send the comments field empty.");
 
   const game = await gameRepositories.findGamesByIdRepository(gameId);
@@ -185,7 +185,7 @@ const addCommentGameService = async(gameId, message, userId) => {
   await gameRepositories.commentsRepository(gameId, message, userId);
 };
 
-const commentDeleteGameService = async(gameId, userId, idComment) => {
+const commentDeleteGameService = async (gameId, userId, idComment) => {
   const game = await gameRepositories.findGamesByIdRepository(gameId);
 
   if (!game) throw new Error("Game not found.");

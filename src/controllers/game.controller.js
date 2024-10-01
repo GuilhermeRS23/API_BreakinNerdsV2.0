@@ -1,6 +1,6 @@
 import gameService from "../services/game.service.js";
 
-const createdGameController = async(req, res) => {
+const createdGameController = async (req, res) => {
   const { title, cover, description } = req.body;
   const userId = req.userId;
 
@@ -15,7 +15,7 @@ const createdGameController = async(req, res) => {
   }
 };
 
-const findAllGamesController = async(req, res) => {
+const findAllGamesController = async (req, res) => {
   const { limit, offset } = req.query;
   const currentUrl = req.baseUrl;
 
@@ -31,7 +31,7 @@ const findAllGamesController = async(req, res) => {
   }
 };
 
-const topGameController = async(req, res) => {
+const topGameController = async (req, res) => {
   try {
     const game = await gameService.topGameService();
     return res.send(game);
@@ -40,7 +40,7 @@ const topGameController = async(req, res) => {
   }
 };
 
-const searchGameController = async(req, res) => {
+const searchGameController = async (req, res) => {
   const { title } = req.query;
 
   try {
@@ -52,7 +52,7 @@ const searchGameController = async(req, res) => {
   }
 };
 
-const findGameByIdController = async(req, res) => {
+const findGameByIdController = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -63,17 +63,19 @@ const findGameByIdController = async(req, res) => {
   }
 };
 
-const findGamesByUserIdController = async(req, res) => {
+const findGamesByUserIdController = async (req, res) => {
   const id = req.userId;
+
   try {
     const games = await gameService.findGamesByUserIdService(id);
     return res.send(games);
   } catch (e) {
+    console.error("Error:", e)
     return res.status(500).send(e.message);
   }
 };
 
-const updateGameController = async(req, res) => {
+const updateGameController = async (req, res) => {
   const { title, cover, description } = req.body;
   const { id } = req.params;
   const userId = req.userId;
@@ -87,7 +89,7 @@ const updateGameController = async(req, res) => {
   }
 };
 
-const deleteGameController = async(req, res) => {
+const deleteGameController = async (req, res) => {
   const { id } = req.params;
   const userId = req.userId;
 
@@ -99,7 +101,7 @@ const deleteGameController = async(req, res) => {
   }
 };
 
-const likeGameController = async(req, res) => {
+const likeGameController = async (req, res) => {
   const { id } = req.params;
   const userId = req.userId;
 
@@ -112,7 +114,7 @@ const likeGameController = async(req, res) => {
   }
 };
 
-const addCommentGameController = async(req, res) => {
+const addCommentGameController = async (req, res) => {
   const { id: gameId } = req.params;
   const { message } = req.body;
   const userId = req.userId;
@@ -128,7 +130,7 @@ const addCommentGameController = async(req, res) => {
   }
 };
 
-const commentDeleteGameController = async(req, res) => {
+const commentDeleteGameController = async (req, res) => {
   const { id: gameId, idComment } = req.params;
   const userId = req.userId;
 

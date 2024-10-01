@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const GamesSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        require: true,
+    },
     title: {
         type: String,
         require: true
@@ -16,11 +21,6 @@ const GamesSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now()
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        require: true
     },
     likes: {
         type: Array,
