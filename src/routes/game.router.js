@@ -13,7 +13,7 @@ gameRouter.use(authMiddleware)
 gameRouter.post("/created", gameController.createdGameController);
 
 gameRouter.use(validId);
-gameRouter.get("/:id", gameController.findGameByIdController);
+gameRouter.get("/findGameById/:id", gameController.findGameByIdController);
 gameRouter.get("/user/games", gameController.findGamesByUserIdController);
 gameRouter.patch("/updated/:id", gameController.updateGameController);
 gameRouter.delete("/deleted/:id", gameController.deleteGameController);
