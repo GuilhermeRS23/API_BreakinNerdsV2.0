@@ -30,6 +30,9 @@ const authMiddleware = (req, res, next) => {
                     .send({ message: "Invalid token!" });
 
             req.userId = user.id;
+            //Rota para os comentario
+            req.userAvatar = user.avatar;
+            req.userName = user.username;
             return next();
         });
     } catch (e) {

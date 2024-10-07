@@ -19,6 +19,6 @@ gameRouter.patch("/updated/:id", gameController.updateGameController);
 gameRouter.delete("/deleted/:id", gameController.deleteGameController);
 gameRouter.patch("/like/:id", gameController.likeGameController);
 gameRouter.patch("/comment/:id", gameController.addCommentGameController);
-gameRouter.patch("/:id/:idComment/comment", gameController.commentDeleteGameController);
+gameRouter.patch("/:id/:idComment/delete_comment", gameController.commentDeleteGameController);
 
 export default gameRouter;

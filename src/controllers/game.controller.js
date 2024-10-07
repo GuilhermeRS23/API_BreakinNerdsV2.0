@@ -118,9 +118,11 @@ const addCommentGameController = async (req, res) => {
   const { id: gameId } = req.params;
   const { message } = req.body;
   const userId = req.userId;
+  const userAvatar = req.userAvatar;
+  const userName = req.userName;
 
   try {
-    await gameService.addCommentGameService(gameId, message, userId);
+    await gameService.addCommentGameService(gameId, message, userId, userAvatar, userName);
 
     return res.send({
       message: "Comment sent successfully!",
@@ -133,9 +135,11 @@ const addCommentGameController = async (req, res) => {
 const commentDeleteGameController = async (req, res) => {
   const { id: gameId, idComment } = req.params;
   const userId = req.userId;
+  const userAvatar = req.userAvatar;
+  const userName = req.userName;
 
   try {
-    await gameService.commentDeleteGameService(gameId, userId, idComment);
+    await gameService.commentDeleteGameService(gameId, userId, idComment, userAvatar, userName);
 
     return res.send({ message: "Comment removed successfully!" });
   } catch (e) {

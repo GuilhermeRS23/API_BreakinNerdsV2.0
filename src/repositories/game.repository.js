@@ -87,7 +87,7 @@ const likesDeleteRepository = (id, userId) => {
     );
 };
 
-const commentsRepository = (id, message, userId) => {
+const commentsRepository = (id, message, userId, userAvatar, userName) => {
     let idComment = uuidv4();
     return Games.findOneAndUpdate(
         {
@@ -95,7 +95,7 @@ const commentsRepository = (id, message, userId) => {
         },
         {
             $push: {
-                comments: { idComment, userId, message, createdAt: new Date() },
+                comments: { idComment, userId, message, userAvatar, userName, createdAt: new Date() },
             },
         },
         {
@@ -104,7 +104,7 @@ const commentsRepository = (id, message, userId) => {
     );
 };
 
-const commentsDeleteRepository = (id, userId, idComment) => {
+const commentsDeleteRepository = (id, userId, idComment, userAvatar, userName) => {
     return Games.findOneAndUpdate(
         {
             _id: id,
@@ -114,6 +114,8 @@ const commentsDeleteRepository = (id, userId, idComment) => {
                 comments: {
                     idComment: idComment,
                     userId: userId,
+                    userAvatar: userAvatar, 
+                    userName: userName
                 },
             },
         }

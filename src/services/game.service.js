@@ -175,22 +175,22 @@ const likeGameService = async (id, userId) => {
   return { message: "Like added successfully!" };
 };
 
-const addCommentGameService = async (gameId, message, userId) => {
+const addCommentGameService = async (gameId, message, userId, userAvatar, userName) => {
   if (!message) throw new Error("It is not allowed to send the comments field empty.");
 
   const game = await gameRepositories.findGamesByIdRepository(gameId);
 
   if (!game) throw new Error("Game not found!");
 
-  await gameRepositories.commentsRepository(gameId, message, userId);
+  await gameRepositories.commentsRepository(gameId, message, userId, userAvatar, userName);
 };
 
-const commentDeleteGameService = async (gameId, userId, idComment) => {
+const commentDeleteGameService = async (gameId, userId, idComment, userAvatar, userName) => {
   const game = await gameRepositories.findGamesByIdRepository(gameId);
 
   if (!game) throw new Error("Game not found.");
 
-  await gameRepositories.commentsDeleteRepository(gameId, userId, idComment);
+  await gameRepositories.commentsDeleteRepository(gameId, userId, idComment, userAvatar, userName);
 };
 
 export default {
