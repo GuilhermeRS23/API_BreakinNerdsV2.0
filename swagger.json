@@ -12,6 +12,10 @@
         {
             "url": "http://localhost:3000",
             "decription": "Servidor Local"
+        },
+        {
+            "url": "https://api-breakinnerdsv2-0.onrender.com",
+            "decription": "Render Server"
         }
     ],
     "paths": {
@@ -383,7 +387,7 @@
                 }
             }
         },
-        "/game/{id}": {
+        "/game/findGameById/{id}": {
             "get": {
                 "summary": "Search game by id",
                 "description": "Route responsible for fetching game by id",
